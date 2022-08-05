@@ -22,7 +22,9 @@ const PostsWrapper = styled.div`
         grid-template-columns: repeat( auto-fill, minmax( 15rem, auto ));
     `}
 `;
-
+const Page = styled.div`
+    display: flex;
+`; 
 const Main = () => {
     //전체 포스트를 저장할 배열
     const [ posts, setPosts ] = useState([]);
@@ -70,11 +72,13 @@ const Main = () => {
                     }
                 </PostsWrapper>
             </MainWrapper>
+            <Page>
                 <Pagination 
                     postPerPage={postPerPage}
                     totalPosts={posts.length}
                     paginate={paginate}
                 />
+            </Page>
         </div>
     )
 }

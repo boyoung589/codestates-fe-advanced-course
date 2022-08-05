@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ButtonDiv = styled.div`
     border: 1px solid red;
-    display: grid;
+    display: flex;
 `;
 const Button = styled.button``;
 
