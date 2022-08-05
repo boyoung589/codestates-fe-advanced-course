@@ -14,7 +14,7 @@ const CommentBody = styled.div`
     font-weight: bold;
     font-size: 16px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; 
     word-break: break-word;
 `;
 const CommentUser = styled.div`
