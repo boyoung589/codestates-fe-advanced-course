@@ -58,15 +58,15 @@ const Main = () => {
                 <hr/>
                 <PostsWrapper>
                     {
-                        currentPosts.length === 0 ? '포스트가 없습니다' :
-                        currentPosts.map((el) => (
-                            
-                            <PostFrame 
-                                {...el} 
-                                key={el.id}
-                                loading={loading}
-                            />
-                        ))
+                        currentPosts.length === 0 ? '포스트가 없습니다' : (
+                            currentPosts.map((el) => (                            
+                                <PostFrame 
+                                    {...el} 
+                                    key={el.id}
+                                    loading={loading}
+                                />
+                            ))
+                        )
                     }
                 <Pagination 
                     postPerPage={postPerPage}
