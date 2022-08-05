@@ -14,7 +14,7 @@ const FrameWrapper = styled.div`
     grid-template-rows: 2fr 1fr;
     border-radius: 15px;
     box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
-
+    /* width: 20rem; */
 `;
 const TitleBox = styled.div`
     color: #414c49;
@@ -42,12 +42,13 @@ const UserNameBox = styled.div`
         margin: 0 0.5rem 0.5rem;
     `}
 `;
-const PostFrame = (props) => {
+const PostFrame = (props, loading) => {
     const { userId, id, title } = props;
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const [name, setName] = useState('');
+
 
     //각 요약된 포스트 클릭시 해당포스트 상태 저장 및 상세포스트창으로 이동
     const handleUserPostClick = async(event) => {
@@ -63,6 +64,7 @@ const PostFrame = (props) => {
         navigate(`/posts/:${id}`);
 
     };
+
     useState(() => {
 
         const getUserName = async() => {

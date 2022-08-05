@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
 import postsApi from "../api/post";
-import Button from "../components/Button";
+import { Pagination } from "../components/Pagination";
 import PostFrame from "../components/PostFrame";
-//전체 포스트 불러오기
-//유저네임 검색
-//제목 검색
-//
+
 const MainWrapper = styled.div`
     padding: 4rem;
     ${media.lessThan('medium')`
@@ -18,10 +15,10 @@ const PostsWrapper = styled.div`
     margin-top: 2rem;
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat( auto-fit, minmax( 20rem, auto ));
+    grid-template-columns: repeat( auto-fill, minmax( 18rem, auto ));
 
     ${media.lessThan('medium')`
-        grid-template-columns: repeat( auto-fit, minmax( 15rem, auto ));
+        grid-template-columns: repeat( auto-fill, minmax( 15rem, auto ));
     `}
 `;
 
@@ -32,8 +29,8 @@ const Main = () => {
     const [ loading, setLoading ] = useState([]);
     //현재 페이지
     const [ currentPage, setCurrentPage ] = useState(1);
-    //한페이지에 불러올 포스트 수
-    const [ postPerPage, setPostPerPage ] = useState(10)
+    //한페이지에 불러 올 포스트 수(10)
+    const [ postPerPage ] = useState(10)
     useEffect(()=>{
         const getAllPost = async() => {
             setLoading(true);
@@ -46,24 +43,38 @@ const Main = () => {
         }
         getAllPost();
     }, [])
+
+    //현재 포스트
+    const indexOfLastPost = currentPage * postPerPage;
+    const indexOfFirstPost = indexOfLastPost - postPerPage;
+    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+    //change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
     
     return(
-        <MainWrapper>
-            검색기능
-            <hr/>
-            <PostsWrapper>
-                {
-                    posts.map((el) => (
-                        
-                        <PostFrame 
-                            {...el} 
-                            key={el.id}
-                        />
-                    ))
-                }
-                <Button />
-            </PostsWrapper>
-        </MainWrapper>
+        <div>
+            <MainWrapper>
+                <hr/>
+                <PostsWrapper>
+                    {
+                        currentPosts.map((el) => (
+                            
+                            <PostFrame 
+                                {...el} 
+                                key={el.id}
+                                loading={loading}
+                            />
+                        ))
+                    }
+                <Pagination 
+                    postPerPage={postPerPage}
+                    totalPosts={posts.length}
+                    paginate={paginate}
+                />
+                </PostsWrapper>
+            </MainWrapper>
+        </div>
     )
 }
 

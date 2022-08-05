@@ -40,11 +40,9 @@ const UserPost = () => {
     const selected = useSelector((state) => state.userPost.postInfo)
     console.log('잘 저장됐니?', selected)
     const [comments, setComments] = useState([]);
-    const [loading, setLoading] = useState(false);
     
     useEffect(() => {
         const getComment = async(id) => {
-            setLoading(true)
             await commentsApi.getAllCommentOnPost(id)
                 .then((result) => {
                     setComments(result.data) 
