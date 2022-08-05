@@ -15,6 +15,7 @@ const PostsWrapper = styled.div`
     margin-top: 2rem;
     display: grid;
     gap: 1.5rem;
+    justify-content: center;
     grid-template-columns: repeat( auto-fill, minmax( 18rem, auto ));
 
     ${media.lessThan('medium')`
