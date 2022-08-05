@@ -58,6 +58,7 @@ const Main = () => {
                 <hr/>
                 <PostsWrapper>
                     {
+                        currentPosts.length === 0 ? '포스트가 없습니다' :
                         currentPosts.map((el) => (
                             
                             <PostFrame 
