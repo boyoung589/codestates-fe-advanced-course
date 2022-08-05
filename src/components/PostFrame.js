@@ -8,6 +8,8 @@ import { postSelected } from "../redux/modules/userPostSlice";
 
 //포스트 하나의 구성
 const FrameWrapper = styled.div`
+    width: 100%;
+    height: 100%;
     display: grid;
     background-color: white;
     aspect-ratio: 262 / 270;
