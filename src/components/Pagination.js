@@ -1,9 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 const ButtonDiv = styled.div`
-    border: 1px solid red;
+    border: 1px red solid;
     display: flex;
+    margin: 2rem 10rem;
+    flex-direction: row;
+    justify-content: space-around;
+    ${media.lessThan('medium')`
+        margin: 2rem 0;
+    `}
 `;
 const Button = styled.button``;
 
@@ -16,11 +23,9 @@ export const Pagination = ({postPerPage, totalPosts, paginate}) => {
   return (
     <ButtonDiv>
         {pageNumbers.map(number => (
-            <ul key={number} >
-                <Button onClick={() => paginate(number)}  >
-                    {number}
-                </Button>
-            </ul>
+            <Button onClick={() => paginate(number)}  >
+                {number}
+            </Button>
         ))}
     </ButtonDiv>
   )

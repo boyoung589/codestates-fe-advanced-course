@@ -22,9 +22,6 @@ const PostsWrapper = styled.div`
         grid-template-columns: repeat( auto-fill, minmax( 15rem, auto ));
     `}
 `;
-const Page = styled.div`
-    display: flex;
-`; 
 const Main = () => {
     //전체 포스트를 저장할 배열
     const [ posts, setPosts ] = useState([]);
@@ -55,31 +52,27 @@ const Main = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     
     return(
-        <div>
-            <MainWrapper>
-                <hr/>
-                <PostsWrapper>
-                    {
-                        currentPosts.length === 0 ? '포스트가 없습니다' : (
-                            currentPosts.map((el) => (                            
-                                <PostFrame 
-                                    {...el} 
-                                    key={el.id}
-                                    loading={loading}
-                                />
-                            ))
-                        )
-                    }
-                </PostsWrapper>
-            </MainWrapper>
-            <Page>
-                <Pagination 
-                    postPerPage={postPerPage}
-                    totalPosts={posts.length}
-                    paginate={paginate}
-                />
-            </Page>
-        </div>
+        <MainWrapper>
+            <hr/>
+            <PostsWrapper>
+                {
+                    currentPosts.length === 0 ? '포스트가 없습니다' : (
+                        currentPosts.map((el) => (                            
+                            <PostFrame 
+                                {...el} 
+                                key={el.id}
+                                loading={loading}
+                            />
+                        ))
+                    )
+                }
+            </PostsWrapper>
+            <Pagination 
+                postPerPage={postPerPage}
+                totalPosts={posts.length}
+                paginate={paginate}
+            />
+        </MainWrapper>
     )
 }
 
