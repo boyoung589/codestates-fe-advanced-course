@@ -34,6 +34,11 @@ const PostUser = styled.h4`
     text-align: right;
     opacity: 60%;
 `;
+const PostEmail = styled.PostUser`
+    ${media.lessThan('medium')`
+        display: none;
+    `}
+`;
 const PostBody = styled.h3``;
 
 const UserPost = () => {
@@ -54,7 +59,7 @@ const UserPost = () => {
             <PostDiv>
                 <PostTitle>{selected.title}</PostTitle>
                 <PostUser >{selected.userInfo.username}</PostUser>
-                <PostUser Email>{selected.userInfo.email}</PostUser>
+                <PostEmail >{selected.userInfo.email}</PostEmail>
                 <PostBody>{selected.body}</PostBody>
                 <PostUser >댓글 수 {comments.length}</PostUser>
             </PostDiv>
