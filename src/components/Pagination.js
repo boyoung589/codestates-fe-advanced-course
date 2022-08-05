@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ButtonDiv = styled.div`
-    display: flex;
-    align-items: center;
+    border: 1px solid red;
+    display: grid;
 `;
 const Button = styled.button``;
 

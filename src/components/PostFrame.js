@@ -8,15 +8,12 @@ import { postSelected } from "../redux/modules/userPostSlice";
 
 //포스트 하나의 구성
 const FrameWrapper = styled.div`
-    width: 100%;
-    height: 100%;
     display: grid;
     background-color: white;
     aspect-ratio: 262 / 270;
     grid-template-rows: 2fr 1fr;
     border-radius: 15px;
     box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
-    /* width: 20rem; */
 `;
 const TitleBox = styled.div`
     color: #414c49;

@@ -22,5 +22,19 @@ const GlobalStyle = createGlobalStyle`
             font-size: 14px;
         `}
     };
+    button, input, textarea {
+        padding: 0;
+        border: none;
+        outline: none;
+        background-color: inherit;
+    };
+    button {
+        cursor: pointer;
+        :active,
+        :hover,
+        :focus {
+        outline: none;
+        }
+    }
 `
 export default GlobalStyle;

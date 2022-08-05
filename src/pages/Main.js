@@ -37,7 +37,6 @@ const Main = () => {
             setLoading(true);
             await postsApi.getAllPosts()
                 .then((result) => {
-                    // console.log('모든 포스트', result.data);
                     setPosts(result.data);
                 });
             setLoading(false);
@@ -69,13 +68,13 @@ const Main = () => {
                             ))
                         )
                     }
+                </PostsWrapper>
+            </MainWrapper>
                 <Pagination 
                     postPerPage={postPerPage}
                     totalPosts={posts.length}
                     paginate={paginate}
                 />
-                </PostsWrapper>
-            </MainWrapper>
         </div>
     )
 }

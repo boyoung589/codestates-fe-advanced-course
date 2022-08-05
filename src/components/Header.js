@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {IoIosBookmark} from 'react-icons/io';
 
 const StyledHeader = styled.header`
-    width: 100%;
     background-color: white;
     color: #002999;
     font-weight: bolder;
