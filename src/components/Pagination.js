@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 
 const ButtonDiv = styled.div`
-    border: 1px red solid;
     display: flex;
     margin: 2rem 10rem;
     flex-direction: row;
