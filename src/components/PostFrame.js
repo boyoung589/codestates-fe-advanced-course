@@ -9,13 +9,14 @@ import { postSelected } from "../redux/modules/userPostSlice";
 //포스트 하나의 구성
 const FrameWrapper = styled.div`
     display: grid;
-    border: 1px red solid;
+    background-color: white;
     aspect-ratio: 262 / 270;
     grid-template-rows: 2fr 1fr;
     border-radius: 15px;
+    box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.25);
+
 `;
 const TitleBox = styled.div`
-    border: 1px red solid;
     color: #414c49;
     font-size: 21px;
     font-weight: bold;
@@ -33,7 +34,6 @@ const TitleBox = styled.div`
     `}
 `;
 const UserNameBox = styled.div`
-    border: 1px red solid;
     text-align: right;
     margin: 0 1rem 1rem;
     align-self: center;
@@ -55,7 +55,7 @@ const PostFrame = (props) => {
         const resUser = await postsApi.getUserInfo(resPost.data.userId);
 
         dispatch(postSelected({
-            'postId': resPost.data.postId,
+            'postId': id,
             'title': resPost.data.title,
             'body': resPost.data.body,
             'userInfo': resUser.data,

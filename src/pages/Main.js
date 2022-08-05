@@ -9,7 +9,6 @@ import PostFrame from "../components/PostFrame";
 //제목 검색
 //
 const MainWrapper = styled.div`
-    border: 1px solid plum;
     padding: 4rem;
     ${media.lessThan('medium')`
         padding: 4rem 1rem 4rem;
